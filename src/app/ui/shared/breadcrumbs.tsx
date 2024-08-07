@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { BreadcrumbIcon } from "./icons/breadcrumb-icon";
+import { usePathname } from "next/navigation";
 
 interface Breadcrumb {
   active?: boolean;
@@ -11,12 +15,19 @@ export default function Breadcrumbs({
 }: {
   breadcrumbs: Breadcrumb[];
 }) {
+  const pathname = usePathname();
+
   return (
     <nav
       aria-label="Breadcrumb menu"
-      className="h-[50px] flex items-center mx-auto outline outline-[1px] outline-black w-full"
+      className={`h-[50px] flex items-center mx-auto w-full ${
+        pathname === "/podcasts" ? "mt-[50px]" : ""
+      }`}
     >
-      <ol className="flex w-[90%] mx-auto">
+      <ol className="flex w-full mx-auto pl-3">
+        <li>
+          <BreadcrumbIcon />
+        </li>
         {breadcrumbs.map((breadcrumb, index) => (
           <li
             key={breadcrumb.href}
