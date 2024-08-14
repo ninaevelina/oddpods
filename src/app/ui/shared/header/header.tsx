@@ -6,9 +6,18 @@ import HeaderLogo from "../icons/header-logo";
 import { usePathname } from "next/navigation";
 import { HamburgerIcon } from "../icons/hamburger-icon";
 import HeartIcon from "../icons/heart-icon";
+import { useFavourites } from "@/lib/contexts/favourites-context";
 
 export const Header = () => {
   const pathname = usePathname();
+  const { favourites } = useFavourites();
+
+  const favouritesLength = favourites.length;
+  const hasFavourites = favourites.length > 0;
+
+  const showAlert = () => {
+    window.alert("Test alert");
+  };
   return (
     <header className="sticky top-0 flex w-full flex-col items-center border-black transition-all duration-300 bg-white z-50">
       <div
@@ -27,7 +36,11 @@ export const Header = () => {
           </Link>
         </div>
         <div className="text-small flex h-full items-center overflow-hidden px-0 w-full max-w-[80px]">
-          <HeartIcon /> {/* update the hearticon-component */}
+          <HeartIcon
+            isFilled={hasFavourites}
+            favouritesCount={favouritesLength}
+            onClick={showAlert}
+          />
         </div>
       </div>
       {pathname == "/podcasts" && <Search placeholder={"Search"} />}
