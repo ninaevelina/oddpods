@@ -1,11 +1,11 @@
-import Podcasts from "@/app/ui/Podcasts";
-import Link from "next/link";
+import Hero from "./ui/hero";
+import { LandingPageGrid } from "./ui/landingpage-grid";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Home page
-      <Link href={"/podcasts"}>Go to podcasts</Link>
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      <Hero />
+      <LandingPageGrid />
     </main>
   );
 }
