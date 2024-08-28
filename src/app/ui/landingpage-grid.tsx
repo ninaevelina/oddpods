@@ -9,8 +9,8 @@ export const LandingPageGrid = () => {
         <div className="w-full flex flex-wrap ml-2.5">
           <div className="flex-grow-1 w-2/3">
             <h2 className="text-2xl mb-3 font-semibold">
-              Podsearch offers you a wide selection of the newest comedy
-              podcasts from SR
+              OddPods offers you a wide selection of the newest comedy podcasts
+              from SR
             </h2>
             <Link
               href={"/podcasts"}
