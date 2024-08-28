@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "./ui/shared/header/header";
 import { FavouritesProvider } from "@/lib/contexts/favourites-context";
+import Footer from "./ui/shared/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
         <body className={inter.className}>
           <Header />
           {children}
+          <Footer />
         </body>
       </html>
     </FavouritesProvider>
