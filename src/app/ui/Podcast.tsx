@@ -4,7 +4,6 @@ import { IPodcast } from "@/models/IPodcast";
 import Image from "next/image";
 import Link from "next/link";
 import HeartIcon from "./shared/icons/heart-icon";
-import { useState } from "react";
 import { useFavourites } from "@/lib/contexts/favourites-context";
 
 interface PodcastProps {
@@ -22,11 +21,12 @@ export const Podcast = ({ podcast, isListItem }: PodcastProps) => {
       addToFavourites(podcast);
     }
   };
+
   return (
     <article
       className={
         isListItem
-          ? `max-w-sm rounded overflow-hidden shadow-lg w-full mx-auto`
+          ? `rounded overflow-hidden shadow-lg w-full mx-auto`
           : `bg-white grid grid-cols-1 md:grid-cols-2 w-[90%] mx-auto mt-[30px]`
       }
     >
@@ -57,8 +57,12 @@ export const Podcast = ({ podcast, isListItem }: PodcastProps) => {
           {podcast.description}
         </p>
         {!isListItem && (
-          <Link href={podcast.programurl} className="mx-2" target="_blank">
-            Listen to {podcast.name}
+          <Link
+            href={podcast.programurl}
+            className="mx-2 underline"
+            target="_blank"
+          >
+            Listen to {podcast.name} at SR
           </Link>
         )}
       </div>
