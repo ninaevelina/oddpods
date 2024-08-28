@@ -11,12 +11,19 @@ export const HeartIcon = ({
 }: HeartIconProps) => {
   return (
     <>
-      <button onClick={onClick}>
+      <button
+        onClick={onClick}
+        type="button"
+        aria-label={isFilled ? "Remove from favourites" : "Add to favourites"}
+        aria-pressed={isFilled}
+      >
         <svg
           viewBox="0 0 20 20"
           fill={isFilled ? "red" : "none"}
           xmlns="http://www.w3.org/2000/svg"
           className="w-[18px]"
+          role="img"
+          aria-hidden="true"
         >
           <path
             clipRule="evenodd"
@@ -28,7 +35,12 @@ export const HeartIcon = ({
         </svg>
       </button>
       {favouritesCount !== undefined && favouritesCount > 0 && (
-        <span className="inline-block pl-2">{favouritesCount}</span>
+        <span
+          className="inline-block pl-2"
+          aria-label={`${favouritesCount} favourites`}
+        >
+          {favouritesCount}
+        </span>
       )}
     </>
   );
