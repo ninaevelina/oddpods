@@ -25,7 +25,19 @@ const FavouritesContext = createContext<FavouritesContextProps | undefined>(
 );
 
 export const FavouritesProvider = ({ children }: FavouritesProviderProps) => {
-  const [favourites, setFavourites] = useState<IPodcast[]>([]);
+  const [favourites, setFavourites] = useState<IPodcast[]>(() => {
+    try {
+      const favouritesLS = localStorage.getItem("favourites");
+      return favouritesLS ? JSON.parse(favouritesLS) : [];
+    } catch (error) {
+      console.error("Failed to get favourites from LS:", error);
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("favourites", JSON.stringify(favourites));
+  }, [favourites]);
 
   const addToFavourites = (podcast: IPodcast) => {
     setFavourites((prevFavourites) => [...prevFavourites, podcast]);
