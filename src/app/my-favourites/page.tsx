@@ -1,5 +1,10 @@
 import FavouritesList from "../ui/shared/favourites/favourites-list";
 import Breadcrumbs from "../ui/shared/breadcrumbs";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ODDPODS | My favourites",
+};
 
 export default function Page() {
   return (
