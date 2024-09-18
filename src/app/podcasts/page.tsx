@@ -1,5 +1,10 @@
 import Podcasts from "../ui/Podcasts";
 import Breadcrumbs from "../ui/shared/breadcrumbs";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ODDPODS | Podcasts",
+};
 
 export default function Page() {
   return (
