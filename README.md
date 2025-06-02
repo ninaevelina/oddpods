@@ -2,6 +2,8 @@
 
 **ODDPODS** - A simple podcast search application using fetched data from Swedish Radio's open API 🎧
 
+![Screenshot of ODDPODS Podcasts page](screenshot-oddpods.png)
+
 ## Features
 
 - Fetch podcast data from Swedish Radio's open API
