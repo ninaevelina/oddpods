@@ -6,9 +6,13 @@
 
 ## Features
 
-- Fetch podcast data from Swedish Radio's open API
-- Search for a specific podcast
-- Add a podcast to your favourites list
+The application fetches data from Swedish Radio's open API and focuses on the following features:
+
+**Search for a specific podcast**
+Search functionality that implements use-debounce to reduce unnecessary updates or API calls.
+
+**Favourites functionality**
+The user can add and remove podcasts to their list of favourites by clicking the heart-icon in the top right corner of the podcast cards.
 
 ## Tech Stack
 
